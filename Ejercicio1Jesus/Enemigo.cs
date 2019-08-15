@@ -8,45 +8,27 @@ namespace Ejercicio1Jesus
 {
     class Enemigo
     {
-        private int _posX;
-        public int posX
+        public int posX { get; set; }
+        public  int posY { get; set; }
+        public int FinalScore { get; set; }
+        private int _score;
+        public int Score
         {
             get
-            {
-                return _posX;
-            }
+            { return _score; }
             set
             {
-                if(posX > 1280)
+                if (value <= 100)
                 {
-                    posX = posX * -1; 
+                    throw new Exception("El valor tiene que ser mayor a 100");
                 }
                 else
                 {
-                    posX = posX * 1;
+                    _score = value;
                 }
             }
         }
-        private int _posY;
-        public  int posY
-        {
-            get
-            {
-                return _posY;
-            }
-            set
-            {
-                if (posY > 720)
-                {
-                    posY = posY * -1;
-                }
-                else
-                {
-                    posY = posY * 1;
-                }
-            }
-        }
-        public int Score { get; set; }
+        /*
         private int _life;
         public int Life
         {
@@ -55,7 +37,7 @@ namespace Ejercicio1Jesus
             {
                 Life = 100;
             }
-        }
+        }*/
 
         public void Move()
         {
